@@ -1,5 +1,7 @@
 package css.cis3334.project;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,9 @@ public class FragmentNotifications extends Fragment {
 
     private FragmentNotificationsBinding binding;
     private MainViewModel viewModel;
+    private DatabaseHelper dbHelper;
+    private SQLiteDatabase db;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -30,6 +35,9 @@ public class FragmentNotifications extends Fragment {
 
         final TextView textView = binding.textNotifications;
         viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        dbHelper = new DatabaseHelper(getContext());
+        db = dbHelper.getWritableDatabase();
+        db.close();
         return root;
     }
 
@@ -37,5 +45,9 @@ public class FragmentNotifications extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
+    }
+    private void insertWorkout(Workout workout) {
+        ContentValues values = workout.toContentValues();
+        db.insert(DatabaseHelper.TABLE_WORKOUTS, null, values);
     }
 }
