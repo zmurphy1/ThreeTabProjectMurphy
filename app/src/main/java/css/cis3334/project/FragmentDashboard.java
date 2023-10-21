@@ -32,7 +32,6 @@ public class FragmentDashboard extends Fragment {
         final TextView textView = binding.textDashboard;
         viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        setupButton();
 
         return root;
     }
@@ -43,16 +42,4 @@ public class FragmentDashboard extends Fragment {
         binding = null;
     }
 
-    private void setupButton() {
-        //buttonUpdateOrder = findViewById(R.id.buttonUpdateOrder);
-        // This app uses the new bindings instead of the old findViewById
-        buttonUpdateOrder= binding.buttonUpdateOrder;
-        buttonUpdateOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("CIS 3334", "Place order button clicked");   // log button click for debugging using "CIS 3334" tag
-                viewModel.setText("Order Placed");
-            }
-        });
-    }
 }
