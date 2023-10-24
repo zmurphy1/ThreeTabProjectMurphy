@@ -6,13 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "WorkoutDatabase.db";
-    private static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "WorkoutDatabase.db";
+    public static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_WORKOUTS = "workouts";
-    private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_TYPE = "type";
-    private static final String COLUMN_MUSCLE = "muscle";
+    public static final String TABLE_WORKOUTS = "workouts";
+    public static final String COLUMN_ID = "_id";
+    public static final String COLUMN_TYPE = "type";
+    public static final String COLUMN_MUSCLE = "muscle";
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
