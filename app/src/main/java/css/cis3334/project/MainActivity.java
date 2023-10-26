@@ -16,13 +16,14 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     MainViewModel mainViewModel;
-    RecyclerView recyclerViewWorkouts = findViewById(R.id.recyclerViewWorkouts);
+    RecyclerView recyclerViewWorkouts;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        recyclerViewWorkouts = findViewById(R.id.recyclerViewWorkouts);
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
         setupNavBindings();
 
