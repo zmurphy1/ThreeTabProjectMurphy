@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -18,7 +19,7 @@ public class FragmentDashboard extends Fragment {
 
     private FragmentDashboardBinding binding;
     private MainViewModel viewModel;
-    Button buttonUpdateOrder;
+    CheckBox checkBoxWorkouts;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -31,11 +32,19 @@ public class FragmentDashboard extends Fragment {
 
         final TextView textView = binding.textDashboard;
         viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-
-
+        checkBoxWorkouts = checkBoxWorkouts.findViewById(R.id.checkBoxWorkouts);
+        setCheckBoxWorkouts();
         return root;
     }
 
+    public boolean setCheckBoxWorkouts(){
+        if(checkBoxWorkouts.isChecked()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();
