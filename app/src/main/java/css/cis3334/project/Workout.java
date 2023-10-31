@@ -3,11 +3,11 @@ package css.cis3334.project;
 import android.content.ContentValues;
 
 public class Workout {
-    private long id;
+    private int id;
     private String type;
     private String muscle;
 
-    public Workout(long id, String type, String muscle) {
+    public Workout(int id, String type, String muscle) {
         this.id = id;
         this.type = type;
         this.muscle = muscle;
@@ -17,7 +17,7 @@ public class Workout {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

@@ -26,7 +26,7 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.WorkoutV
         return new WorkoutViewHolder(view);
     }
     public void fillList(){
-        long id = 0;
+        int id = 0;
         String n = " ";
         String n1 = "";
         Workout w1 = new Workout(id, n , n1);

@@ -29,9 +29,9 @@ public class FragmentDashboard extends Fragment {
 
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-
+        viewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         final TextView textView = binding.textDashboard;
-        viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         checkBoxWorkouts = checkBoxWorkouts.findViewById(R.id.checkBoxWorkouts);
         setCheckBoxWorkouts();
         return root;
