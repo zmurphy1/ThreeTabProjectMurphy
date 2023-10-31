@@ -32,8 +32,14 @@ public class FragmentDashboard extends Fragment {
         viewModel = new ViewModelProvider(requireActivity()).get(MainViewModel.class);
         final TextView textView = binding.textDashboard;
         //viewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        checkBoxWorkouts = checkBoxWorkouts.findViewById(R.id.checkBoxWorkouts);
-        setCheckBoxWorkouts();
+        checkBoxWorkouts = root.findViewById(R.id.checkBoxWorkouts);
+        //setCheckBoxWorkouts();
+        checkBoxWorkouts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setCheckBoxWorkouts();
+            }
+        });
         return root;
     }
 
